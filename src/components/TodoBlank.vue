@@ -2,15 +2,28 @@
   <div class="blanc">
     <h1 class="title">Todo App</h1>
     <TodoInput />
+    <TaskList v-bind:todos="todos" />
   </div>
 </template>
 
 <script>
 import TodoInput from '@/components/TodoInput'
+import TaskList from '@/components/TaskList'
 
 export default {
+  data () {
+    return {
+      todos: [
+        { id: 1, task: 'Помыть посуду' },
+        { id: 2, task: 'Помыть полы' },
+        { id: 3, task: 'Купить хлеб' },
+        { id: 4, task: 'Купить пива' }
+      ]
+    }
+  },
   components: {
-    TodoInput
+    TodoInput,
+    TaskList
   }
 }
 </script>
