@@ -1,10 +1,18 @@
 <template>
   <div class="blanc">
     <h1 class="title">Todo App</h1>
+    <TodoInput />
   </div>
 </template>
 
 <script>
+import TodoInput from '@/components/TodoInput'
+
+export default {
+  components: {
+    TodoInput
+  }
+}
 </script>
 
 <style scoped>
@@ -12,10 +20,10 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 450px;
-    height: 550px;
+    width: 380px;
+    height: 500px;
     background: white;
-    margin: -275px 0 0 -225px;
+    margin: -250px 0 0 -190px;
     border-radius: 10px;
   }
 
