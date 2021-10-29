@@ -1,8 +1,13 @@
 <template>
   <div class="blanc">
     <h1 class="title">Todo App</h1>
-    <TodoInput />
-    <TaskList v-bind:todos="todos" />
+    <todo-input
+      @new="addNewTodoTask"
+    />
+    <task-list
+      :todos="todos"
+      @remove="removeTask"
+    />
   </div>
 </template>
 
@@ -17,13 +22,26 @@ export default {
         { id: 1, task: 'Помыть посуду' },
         { id: 2, task: 'Помыть полы' },
         { id: 3, task: 'Купить хлеб' },
-        { id: 4, task: 'Купить пива' }
+        { id: 4, task: 'Купить пива' },
+        { id: 5, task: 'Купить закуски' }
       ]
     }
   },
   components: {
     TodoInput,
     TaskList
+  },
+  methods: {
+    removeTask (id) {
+      this.todos = this.todos.filter(todo => todo.id !== id)
+    },
+    addNewTodoTask (taskText) {
+      const lastId = this.todos.sort((a, b) => a.id - b.id)[this.todos.length - 1].id
+      this.todos.push({
+        id: lastId + 1,
+        task: taskText
+      })
+    }
   }
 }
 </script>

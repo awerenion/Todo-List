@@ -15,7 +15,6 @@ export default {
 }
 </script>
 
-    TodoBlanc
 <style>
   body {
     background: #24c6dc;

@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div
+    @click="$emit('click')"
+  >
     <button class="addTodo">
       <img src="@/assets/ftedit-add.svg" class="img">
     </button>
@@ -17,6 +19,7 @@
     background: #24c6dc;
     border: 1px solid #24c6dc;
     border-radius: 2px;
+    cursor: pointer;
   }
 
   .img {
@@ -25,4 +28,5 @@
     width: 20px;
     color: white;
   }
+
 </style>

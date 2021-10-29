@@ -1,7 +1,24 @@
 <template>
   <div class="container">
-    <input type="text" placeholder="Add your new todo" class="inputTodo">
-    <AddButton />
+    <input
+      type="text"
+      class="inputTodo"
+      id="input"
+      @focus="togglePlaceholder"
+      @blur="togglePlaceholder"
+      v-model="inputValue"
+    >
+    <label
+      for="input"
+      class="placeholder"
+      v-show="isPlaceholderShow && !inputValue.length"
+    >
+      Add your new todo
+    </label>
+    <add-button
+      class="button"
+      @click="addNewTask"
+    />
   </div>
 </template>
 
@@ -9,8 +26,25 @@
 import AddButton from '@/components/AddButton'
 
 export default {
+  data () {
+    return {
+      inputValue: '',
+      isPlaceholderShow: true
+    }
+  },
   components: {
     AddButton
+  },
+  methods: {
+    togglePlaceholder () {
+      this.isPlaceholderShow = !this.isPlaceholderShow
+    },
+    addNewTask () {
+      if (this.inputValue.length) {
+        this.$emit('new', this.inputValue)
+      }
+      this.inputValue = ''
+    }
   }
 }
 </script>
@@ -28,5 +62,19 @@ export default {
 
   .container {
     display: flex;
+    position: relative;
+  }
+
+  .placeholder {
+    position: absolute;
+    opacity: 0.8;
+    top: calc(60% - 16px);
+    left: calc(9% + 2px);
+    font-size: 17px;
+    cursor: text;
+  }
+
+  .button {
+    cursor: pointer;
   }
 </style>
