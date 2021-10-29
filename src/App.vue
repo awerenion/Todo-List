@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TodoBlank />
+    <todo-blank />
   </div>
 </template>
 
@@ -15,6 +15,7 @@ export default {
 }
 </script>
 
+    TodoBlank
 <style>
   body {
     background: #24c6dc;

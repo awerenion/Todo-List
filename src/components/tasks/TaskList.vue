@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ListItem from '@/components/ListItem'
+import ListItem from '@/components/tasks/ListItem'
 
 export default {
   props: {

@@ -8,12 +8,21 @@
       :todos="todos"
       @remove="removeTask"
     />
+
+    <div class="footer">
+      <span>You have {{ this.todos.length }} pending tasks</span>
+      <clear-tasks
+        class="btn"
+        @click="clearAll"
+      ></clear-tasks>
+    </div>
   </div>
 </template>
 
 <script>
-import TodoInput from '@/components/TodoInput'
-import TaskList from '@/components/TaskList'
+import TodoInput from '@/components/input/TodoInput'
+import TaskList from '@/components/tasks/TaskList'
+import ClearTasks from '@/components/tasks/ClearTasks'
 
 export default {
   data () {
@@ -29,18 +38,29 @@ export default {
   },
   components: {
     TodoInput,
-    TaskList
+    TaskList,
+    ClearTasks
   },
   methods: {
     removeTask (id) {
       this.todos = this.todos.filter(todo => todo.id !== id)
     },
     addNewTodoTask (taskText) {
-      const lastId = this.todos.sort((a, b) => a.id - b.id)[this.todos.length - 1].id
-      this.todos.push({
-        id: lastId + 1,
-        task: taskText
-      })
+      if (this.todos.length === 0) {
+        this.todos.push({
+          id: 1,
+          task: taskText
+        })
+      } else {
+        const lastId = this.todos.sort((a, b) => a.id - b.id)[this.todos.length - 1].id
+        this.todos.push({
+          id: lastId + 1,
+          task: taskText
+        })
+      }
+    },
+    clearAll () {
+      this.todos.splice(0, this.todos.length)
     }
   }
 }
@@ -52,7 +72,6 @@ export default {
     top: 50%;
     left: 50%;
     width: 380px;
-    height: 500px;
     background: white;
     margin: -250px 0 0 -190px;
     border-radius: 10px;
@@ -60,5 +79,17 @@ export default {
 
   .title {
     margin: 20px 0px 5px 25px;
+  }
+
+  .footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .btn {
+    margin-left: 38px;
   }
 </style>

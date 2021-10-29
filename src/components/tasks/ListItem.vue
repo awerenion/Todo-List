@@ -1,8 +1,15 @@
 <template>
-  <div @mouseover="isHovered=true" @mouseleave="isHovered=false">
+  <div
+    @mouseover="isHovered=true"
+    @mouseleave="isHovered=false"
+  >
     <span>{{ todo.task }}</span>
     <transition name="fade">
-      <button class="remove_button" v-show="isHovered" @click="removeTask">
+      <button
+        class="remove_button"
+        v-show="isHovered"
+        @click="removeTask"
+      >
         <img src="@/assets/trash.svg" alt="remove" class="img">
       </button>
     </transition>
@@ -36,7 +43,7 @@ export default {
     align-items: center;
     justify-content: center;
     position: absolute;
-    right: 1px;
+    right: 0px;
     width: 45px;
     height: 100%;
     background: #E64D3F;

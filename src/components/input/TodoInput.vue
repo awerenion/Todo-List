@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import AddButton from '@/components/AddButton'
+import AddButton from '@/components/input/AddButton'
 
 export default {
   data () {
@@ -67,7 +67,7 @@ export default {
   .placeholder {
     position: absolute;
     opacity: 0.8;
-    top: calc(60% - 16px);
+    top: calc(60% - 15px);
     left: calc(9% + 2px);
     font-size: 17px;
     cursor: text;
