@@ -16,7 +16,6 @@
       Add your new todo
     </label>
     <add-button
-      class="button"
       @click="addNewTask"
     />
   </div>
@@ -74,7 +73,4 @@ export default {
     cursor: text;
   }
 
-  .button {
-    cursor: pointer;
-  }
 </style>
