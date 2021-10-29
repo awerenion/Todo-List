@@ -16,6 +16,11 @@
 import ListItem from '@/components/tasks/ListItem'
 
 export default {
+  data () {
+    return {
+      pageNumber: 0
+    }
+  },
   props: {
     todos: {
       type: Array,

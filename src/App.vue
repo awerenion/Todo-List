@@ -21,5 +21,6 @@ export default {
     background: #24c6dc;
     background: -webkit-linear-gradient(to right, #24c6dc, #514a9d);
     background: linear-gradient(to right, #24c6dc, #514a9d);
+    font-family: 'Lato', sans-serif;
   }
 </style>

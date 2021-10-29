@@ -57,6 +57,7 @@ export default {
     width: 250px;
     border: 1px solid #ccc;
     border-radius: 2px;
+    font-weight: 400;
   }
 
   .container {
@@ -69,7 +70,7 @@ export default {
     opacity: 0.8;
     top: calc(60% - 15px);
     left: calc(9% + 2px);
-    font-size: 17px;
+    font-size: 16px;
     cursor: text;
   }
 

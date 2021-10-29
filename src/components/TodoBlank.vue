@@ -10,7 +10,7 @@
     />
 
     <div class="footer">
-      <span>You have {{ this.todos.length }} pending tasks</span>
+      <span class="text">You have {{ this.todos.length }} pending tasks</span>
       <clear-tasks
         class="btn"
         @click="clearAll"
@@ -28,11 +28,6 @@ export default {
   data () {
     return {
       todos: [
-        { id: 1, task: 'Помыть посуду' },
-        { id: 2, task: 'Помыть полы' },
-        { id: 3, task: 'Купить хлеб' },
-        { id: 4, task: 'Купить пива' },
-        { id: 5, task: 'Купить закуски' }
       ]
     }
   },
@@ -91,5 +86,10 @@ export default {
 
   .btn {
     margin-left: 38px;
+  }
+
+  .text {
+    font-weight: 400;
+    font-style: italic;
   }
 </style>

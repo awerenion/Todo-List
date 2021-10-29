@@ -16,5 +16,6 @@
     border: none;
     border-radius: 2px;
     cursor: pointer;
+    letter-spacing: 1px;
   }
 </style>
