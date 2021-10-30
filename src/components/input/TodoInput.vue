@@ -7,6 +7,7 @@
       @focus="togglePlaceholder"
       @blur="togglePlaceholder"
       v-model="inputValue"
+      @keyup.enter="addNewTask"
     >
     <label
       for="input"

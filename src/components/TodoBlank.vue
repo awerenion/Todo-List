@@ -41,7 +41,7 @@ export default {
       this.todos = this.todos.filter(todo => todo.id !== id)
     },
     addNewTodoTask (taskText) {
-      if (this.todos.length === 0) {
+      if (!this.todos.length) {
         this.todos.push({
           id: 1,
           task: taskText
