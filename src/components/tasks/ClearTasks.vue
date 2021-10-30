@@ -5,6 +5,9 @@
 </template>
 
 <script>
+export default {
+  name: 'ClearTasks'
+}
 </script>
 
 <style scope>

@@ -26,6 +26,7 @@
 import AddButton from '@/components/input/AddButton'
 
 export default {
+  name: 'TodoInput',
   data () {
     return {
       inputValue: '',

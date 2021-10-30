@@ -16,6 +16,7 @@
 import ListItem from '@/components/tasks/ListItem'
 
 export default {
+  name: 'TaskList',
   data () {
     return {
       pageNumber: 0

@@ -18,6 +18,7 @@
 
 <script>
 export default {
+  name: 'ListItem',
   data () {
     return {
       isHovered: false
