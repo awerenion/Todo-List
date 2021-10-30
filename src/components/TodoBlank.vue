@@ -5,8 +5,15 @@
       @new="addNewTodoTask"
     />
     <task-list
-      :todos="todos"
+      :todos="todosInPage"
       @remove="removeTask"
+    />
+
+    <pagination
+      :todos="todos"
+      :currentPage="currentPage"
+      :taskToPage="taskToPage"
+      @change="switchPage"
     />
 
     <div class="footer">
@@ -23,10 +30,13 @@
 import TodoInput from '@/components/input/TodoInput'
 import TaskList from '@/components/tasks/TaskList'
 import ClearTasks from '@/components/tasks/ClearTasks'
+import Pagination from '@/components/pagination/Pagination'
 
 export default {
   data () {
     return {
+      currentPage: 1,
+      taskToPage: 5,
       todos: [
       ]
     }
@@ -34,11 +44,22 @@ export default {
   components: {
     TodoInput,
     TaskList,
-    ClearTasks
+    ClearTasks,
+    Pagination
+  },
+  computed: {
+    todosInPage () {
+      const previousPageCount = (this.currentPage - 1) * this.taskToPage
+      const currentPageCount = this.currentPage * this.taskToPage
+      return this.todos.slice(previousPageCount, currentPageCount)
+    }
   },
   methods: {
     removeTask (id) {
       this.todos = this.todos.filter(todo => todo.id !== id)
+      if (!this.todosInPage.length) {
+        this.switchToLastPage()
+      }
     },
     addNewTodoTask (taskText) {
       if (!this.todos.length) {
@@ -52,10 +73,17 @@ export default {
           id: lastId + 1,
           task: taskText
         })
+        this.switchToLastPage()
       }
     },
     clearAll () {
       this.todos.splice(0, this.todos.length)
+    },
+    switchPage (page) {
+      this.currentPage = page || 1
+    },
+    switchToLastPage () {
+      this.switchPage(Math.ceil(this.todos.length / this.taskToPage))
     }
   }
 }
